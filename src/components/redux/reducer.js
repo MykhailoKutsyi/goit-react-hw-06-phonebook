@@ -10,9 +10,9 @@ const items = createReducer(
     { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
   ],
   {
-    [addContact]: (state, { payload }) => [payload, ...state],
+    [addContact]: (state, { payload }) => [...state, payload],
     [deleteContact]: (state, { payload }) =>
-      state.filter(({ name }) => name !== payload),
+      state.filter(({ id }) => id !== payload),
   }
 );
 

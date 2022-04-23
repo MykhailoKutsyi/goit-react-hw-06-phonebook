@@ -20,20 +20,20 @@ const persistConfig = {
   blacklist: ['filter'],
 };
 
-const middleware = [
+const middleware = logger => [
   ...getDefaultMiddleware({
     serializableCheck: {
       ignoreActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
     },
-    logger,
   }),
+  logger,
 ];
 
 export const store = configureStore({
   reducer: {
     contacts: persistReducer(persistConfig, reducer),
   },
-  middleware,
+  middleware: middleware(logger),
   devTools: process.env.NODE_ENV === 'development',
 });
 
