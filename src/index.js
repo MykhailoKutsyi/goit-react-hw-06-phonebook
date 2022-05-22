@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from 'components/App';
+import App from 'App';
 import './index.css';
 import { PersistGate } from 'redux-persist/integration/react';
 
-import { store, persistor } from './components/redux/store';
+import { store, persistor } from './redux/store';
 import { Provider } from 'react-redux';
 
 ReactDOM.render(
